@@ -78,4 +78,4 @@ The integration tests drive pi-durable through Claude Code: a plain answer, a to
 
 ## Credits
 
-The MCP tool-id pairing, the Claude Code environment flags and the history conversion follow [pi-claude-bridge](https://github.com/elidickinson/pi-claude-bridge) by Eli Dickinson (MIT). See `NOTICE`.
+The MCP tool-id pairing, the Claude Code environment flags and the history conversion follow [pi-claude-bridge](https://github.com/elidickinson/pi-claude-bridge) by Eli Dickinson (MIT).
