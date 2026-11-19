@@ -1,11 +1,15 @@
-# @tembo/pi-durable-cc
+# @tembo-io/pi-durable-cc
 
 Claude Code as a model API for [pi-durable](https://www.npmjs.com/package/@earendil-works/pi-durable). Pi's durable harness keeps the conversation, the tools and the crash recovery; Claude models answer through the official Claude Code binary, signed in with an Anthropic API key or a Claude subscription token.
+
+```sh
+bun add @tembo-io/pi-durable-cc @earendil-works/pi-ai @earendil-works/pi-durable
+```
 
 ```ts
 import { createModels, createProvider } from '@earendil-works/pi-ai/models';
 import { createRegistry, Harness } from '@earendil-works/pi-durable';
-import { claudeCodeApi, claudeCodeModels } from '@tembo/pi-durable-cc';
+import { claudeCodeApi, claudeCodeModels } from '@tembo-io/pi-durable-cc';
 
 const api = claudeCodeApi();
 const models = createModels();
@@ -75,6 +79,16 @@ ANTHROPIC_API_KEY=… bun run test:integration   # a real harness on real Claude
 ```
 
 The integration tests drive pi-durable through Claude Code: a plain answer, a tool loop that reuses one process, a rebuild after a restart, a turn cut off mid-tool, a steer during a tool call, thinking replayed through reuse and rebuild, and abort. They run under Node and Bun (`bun --bun ./node_modules/.bin/vitest run test/integration`).
+
+## Releasing
+
+Bump `version` in `package.json`, commit, then push a matching tag:
+
+```sh
+git tag v0.2.0 && git push origin v0.2.0
+```
+
+The release workflow checks, tests and builds the tag, publishes it to npm with provenance and creates the GitHub release. It needs an npm token with publish rights to `@tembo-io` in the `NPM_TOKEN` repository secret.
 
 ## Credits
 

@@ -1,12 +1,24 @@
 {
-	"name": "@tembo/pi-durable-cc",
+	"name": "@tembo-io/pi-durable-cc",
 	"version": "0.1.0",
 	"description": "Claude Code as a model API for pi-durable: run Pi's durable harness on Claude models through the official Claude Code binary.",
+	"keywords": [
+		"pi",
+		"pi-durable",
+		"claude-code",
+		"claude",
+		"anthropic",
+		"agent"
+	],
 	"license": "MIT",
 	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/tembo/pi-durable-cc.git"
+	},
+	"homepage": "https://github.com/tembo/pi-durable-cc#readme",
+	"bugs": {
+		"url": "https://github.com/tembo/pi-durable-cc/issues"
 	},
 	"exports": {
 		".": {
@@ -22,11 +34,15 @@
 	"engines": {
 		"node": ">=20"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "tsc -p tsconfig.build.json",
 		"typecheck": "tsc --noEmit",
 		"test": "vitest run test/unit",
-		"test:integration": "vitest run test/integration"
+		"test:integration": "vitest run test/integration",
+		"prepublishOnly": "bun run build"
 	},
 	"dependencies": {
 		"@anthropic-ai/claude-agent-sdk": "^0.3.328",
