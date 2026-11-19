@@ -68,10 +68,10 @@ Whether a Claude subscription may be used this way depends on Anthropic's terms 
 ## Development
 
 ```sh
-npm install
-npm run typecheck
-npm test                # unit tests, offline
-ANTHROPIC_API_KEY=… npm run test:integration   # a real harness on real Claude Code
+bun install
+bun run typecheck
+bun run test            # unit tests, offline
+ANTHROPIC_API_KEY=… bun run test:integration   # a real harness on real Claude Code
 ```
 
 The integration tests drive pi-durable through Claude Code: a plain answer, a tool loop that reuses one process, a rebuild after a restart, a turn cut off mid-tool, a steer during a tool call, thinking replayed through reuse and rebuild, and abort. They run under Node and Bun (`bun --bun ./node_modules/.bin/vitest run test/integration`).
